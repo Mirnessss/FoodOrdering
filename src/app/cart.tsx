@@ -13,7 +13,7 @@ const { items, total } = useCart()
        renderItem={({ item }) => <CartListItem cartItem={item} />}
        contentContainerStyle= {{gap: 10}}
        />
-      <Text>Total:{total}€</Text>
+      <Text style={{marginTop: 20, fontSize: 15, fontWeight: '700'}}>Total: {total}€</Text>
       <Button text="Checkout"  />
 
         <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />

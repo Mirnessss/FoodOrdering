@@ -47,7 +47,8 @@ const CartProvider = ({children}: PropsWithChildren) => {
         );
     };
 
-    const total = items.reduce((sum, item) => (sum + item.product.price * item.quantity), 0); 
+    const total = items.reduce((sum, item) => 
+    (sum + item.product.price * item.quantity), 0); 
 
     const contextValue = useMemo(() => ({ items, addItem, updateQuantity, total }), [items]);
 
