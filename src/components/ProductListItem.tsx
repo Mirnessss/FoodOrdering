@@ -15,7 +15,7 @@ const ProductListItem = ({ product }: ProductListItemProps) => {
   <Link href={`/menu/${product.id}`} asChild>
     <Pressable  style={styles.container}>
     <Image 
-    source={{ uri: product.image || defaultPizzaImage }} 
+    source={{ uri: product.image ?? defaultPizzaImage }} 
     style = {styles.image}
     resizeMode='contain'
     />
