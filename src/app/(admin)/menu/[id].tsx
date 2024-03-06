@@ -1,10 +1,8 @@
-import { useLocalSearchParams,  Stack, useRouter, Link } from 'expo-router';
+import { useLocalSearchParams,  Stack, Link } from 'expo-router';
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native'
 import products from '@/assets/data/products';
 import { defaultPizzaImage } from '@/src/components/ProductListItem';
-import { useState } from 'react';
 import { FontAwesome } from "@expo/vector-icons"
-import  { useCart } from '../../../providers/CartProvider'
 import { PizzaSize } from '@/src/types';
 import Colors from '@/src/constants/Colors';
 
@@ -14,20 +12,12 @@ const sizes: PizzaSize[] = ['S', 'M', 'L', 'XL'];
 
 const ProductDetailsScreen = () => {
 const { id } = useLocalSearchParams();
-const {addItem} = useCart();
-const router = useRouter();
 
-const [selectedSize, setSelectedSize] = useState<PizzaSize>('M');
+
 
 const product = products.find((p) => p.id.toString() === id);
 
-const addToCart = () => {
-  if (!product) {
-    return;
- }
-  addItem(product, selectedSize);
-  router.push('/(admin)/menu/create');
-}
+
 
 if (!product) {
   return <Text>Product not found</Text>
@@ -76,14 +66,15 @@ const styles = StyleSheet.create (
     price: {
       fontSize: 18,
       fontWeight: 'bold',
+      color: Colors.light.tint,
+      marginTop: 10,
     },
 
     title: {
       fontSize: 20,
       fontWeight: '600',
-    }
-   
-  }
-)
+      marginTop: 10,   
+  },
+})
 
 export default ProductDetailsScreen;
