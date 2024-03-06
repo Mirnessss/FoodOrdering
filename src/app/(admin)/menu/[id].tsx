@@ -25,7 +25,7 @@ const addToCart = () => {
     return;
  }
   addItem(product, selectedSize);
-  router.push('/cart');
+  router.push('/(admin)/menu/create');
 }
 
 if (!product) {
