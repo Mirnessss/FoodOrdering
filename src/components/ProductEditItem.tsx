@@ -10,9 +10,9 @@ type ProductListItemProps = {
     product: Product;
 }
 
-const ProductListItem = ({ product }: ProductListItemProps) => {
+const ProductEditItem = ({ product }: ProductListItemProps) => {
   return (
-  <Link href={`/(user)/menu/${product.id}`} asChild>
+  <Link href={`/(admin)/menu/${product.id}`} asChild>
     <Pressable  style={styles.container}>
     <Image 
     source={{ uri: product.image ?? defaultPizzaImage }} 
@@ -26,7 +26,7 @@ const ProductListItem = ({ product }: ProductListItemProps) => {
   )
 }
 
-export default ProductListItem;
+export default ProductEditItem;
 
 const styles = StyleSheet.create({
   container: {
